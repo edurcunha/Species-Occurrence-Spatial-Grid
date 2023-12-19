@@ -6,28 +6,20 @@ This tool transforms species geographical occurrences into a flexible spatial ma
 
 ## Package usage
 
-Compile the code
+The files and functions required for this example are available for download from the repository. Ensure all files are copied to your current working directory and proceed to compile the code using the 'source()' command.
 
 ```{r, echo=FALSE}
 source('GermanCredit/read_SouthGermanCredit.R')
 ```
 
-Load a fictional dataset containing a single species
+To illustrate, I constructed a synthetic dataset ('RandomOccurrences.csv') containing geographical occurrences of a fictional species, with data organized in two columns for latitude and longitude (in decimal degrees). This dataset, saved as a .csv file, can be loaded using the 'read.csv()' function.
 
 ```{r, echo=FALSE}
 data1 <- read.csv("RandomOccurrences.csv", sep=',')
 data1
 ```
 
-Load a fictional dataset containing two species
-
-
-```{r, echo=FALSE}
-data2
-data2  <- read.csv("RandomOccurrences2.csv", sep=',')
-```
-
-Here is an example for occurrences of a single species 
+Once loaded, utilize the 'occurtogrid()' function to generate a spatial presence/absence matrix. Specify the numerical vectors for latitude and longitude, and adjust the spatial resolution with the 'gridresolution' argument. The resulting matrix is then assigned to the reference object as a vectorized spatial matrix, where columns are concatenated into a unidimensional vector.
 
 ```{r, echo=FALSE}
 gridOneSpecies <- occurtogrid(latitude = data1$Latitude, 
@@ -36,7 +28,15 @@ gridOneSpecies <- occurtogrid(latitude = data1$Latitude,
 gridOneSpecies
 ```
 
-For two or more species, you can add the argument 'species' contining the species lables to the function
+
+ Additionally, a second artificial dataset ('RandomOccurrences2.csv') includes occurrences of two fictional species, with an extra column indicating the species label for each coordinate.
+
+```{r, echo=FALSE}
+data2  <- read.csv("RandomOccurrences2.csv", sep=',')
+data2
+```
+
+For datasets with multiple species, use the 'occurtogrid()' function with the 'species' argument, assigning each species label to the corresponding geographical coordinates. The output comprises a series of vectorized spatial matrices, forming a two-dimensional object with geographical positions in columns and species in rows.
 
 ```{r, echo=FALSE}
 gridTwoSpecies <- occurtogrid(latitude = data2$Latitude, 
