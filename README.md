@@ -9,7 +9,7 @@ This tool transforms species geographical occurrences into a flexible spatial ma
 The files and functions required for this example are available for download from the repository. Ensure all files are copied to your current working directory and proceed to compile the code using the 'source()' command.
 
 ```{r, echo=FALSE}
-source('GermanCredit/read_SouthGermanCredit.R')
+source('occurtogrid.r')
 ```
 
 To illustrate, I constructed a synthetic dataset ('RandomOccurrences.csv') containing geographical occurrences of a fictional species, with data organized in two columns for latitude and longitude (in decimal degrees). This dataset, saved as a .csv file, can be loaded using the 'read.csv()' function.
