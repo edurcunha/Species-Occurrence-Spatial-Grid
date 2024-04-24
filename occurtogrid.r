@@ -1,5 +1,5 @@
 #########
-# occurtogrid: Species occurance in grid position
+# occurtogrid: Species occurance in grid positions
 #########
 
 # latitude: A vector containing the latitudes of species occurences.
@@ -58,7 +58,8 @@ occurtogrid <- function(latitude, longitude, gridresolution, ...) {
   uniqueGridPos <- unique(gridPos)
 
   source("gridocurrences.r")
-  ocurrencesonthegrid <- gridocurrences(uniqueGridPos, gridresolution)
+  ocurrencesonthegrid <- gridocurrences(uniqueGridPos = uniqueGridPos, 
+                                        gridresolution = gridresolution)
 
   return(ocurrencesonthegrid)
 

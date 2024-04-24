@@ -37,12 +37,14 @@ gridocurrences <- function(uniqueGridPos, gridresolution) {
     }
 
   }
+
   rownames(occurrenceGrid) <- spp
 
   source("spatialcellnames.r")
-  cellnames <- spatialcellnames(nrows, ncols, gridresolution)
+  cellnames <- spatialcellnames(nrows = nrows, ncols = ncols, 
+                                gridresolution = gridresolution)
   colnames(occurrenceGrid) <- cellnames
- 
+
   return(occurrenceGrid)
 
 }
